@@ -229,6 +229,7 @@ class HTMLTeX {
       }
     }
 
+
     // build refs
     // recursive search
     var stack = [this.container];

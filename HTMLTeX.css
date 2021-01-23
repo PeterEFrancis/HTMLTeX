@@ -54,6 +54,13 @@
   overflow: scroll;
 }
 
+.HTMLTeX br {
+  display: block;
+  margin: 1em 0;
+  line-height: 2em;
+  content: " ";
+}
+
 @media print {
   .HTMLTeX .collapse {
     display: block !important;
@@ -67,7 +74,5 @@
   .HTMLTeX .glyphicon-collapse-down, .HTMLTeX .glyphicon-collapse-up{
     display: none;
   }
-
-
 
 }

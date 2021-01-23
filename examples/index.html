@@ -10,16 +10,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-
     <!-- MathJax -->
-    <!-- <script type="text/x-mathjax-config" >
-
-    </script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
 
     <!-- LaTeXer -->
-    <script src="https://peterefrancis.com/HTMLTeX/HTMLTeX.js"></script>
-    <link rel="stylesheet" href="https://peterefrancis.com/HTMLTeX/HTMLTeX.css">
+    <!-- <script src="https://cdn.jsdelivr.net/gh/PeterEFrancis/HTMLTeX/HTMLTeX.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/PeterEFrancis/HTMLTeX/HTMLTeX.min.css"> -->
+
+    <script src="https://PeterEFrancis.com/HTMLTeX/HTMLTeX.js"></script>
+    <link rel="stylesheet" href="https://PeterEFrancis.com/HTMLTeX/HTMLTeX.css">
 
   </head>
   <body>
@@ -46,7 +45,7 @@
           <section id="section-1-custom-id">Custom Section 1 Name</section>
 
           This is some text. Blah blah blah. You can still use formatted text like <strong>bold</strong> and <em>italics</em>.
-
+          <br>
           You can use math typsetting, thanks to MathJax. Both inline $m\alpha t \mathcal{H}$ and centered
           $$e^qua=t_ion\int.$$
 
@@ -66,7 +65,7 @@
           <theorem id="custom-theorem-id" title="Custom Theorem Title">
             A thing is a noun.
           </theorem>
-          <proof collapse="true" open="false">
+          <proof collapse=true open=false>
             My english teacher told me so.
           </proof>
 
@@ -117,9 +116,8 @@
 
   </body>
 
-  <script>
-    let doc = document.getElementById('LaTeX');
-    new LaTeXer(doc, MathJax).render({
+  <script type="text/x-mathjax-config">
+    new HTMLTeX(document.getElementById('LaTeX'), MathJax).render({
       'highlight_links':true
     });
   </script>

@@ -1,4 +1,5 @@
 
+
 const labeled_blocks_tag_types = [
   'DEFINITION',
   'THEOREM',
@@ -6,15 +7,26 @@ const labeled_blocks_tag_types = [
 ];
 
 
-var test = 3;
 
 class LaTeXer {
 
-  constructor(container) {
+  constructor(container, options) {
     this.container = container;
+    this.options = options;
   }
 
   render() {
+
+    if(!MathJaX) {
+      throw new Error('MathJax is required and missing.');
+    }
+
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']]
+      }
+    });
+
     var nodes = this.container.childNodes;
 
     var refs = {};
@@ -34,6 +46,9 @@ class LaTeXer {
           )
         );
         var a = document.createElement('a');
+        if (this.options.highlight_links) {
+          a.classList.add('highlight');
+        }
         a.appendChild(document.createTextNode(block_number));
         a.href = "#" + id;
         strong.appendChild(a);
@@ -82,6 +97,9 @@ class LaTeXer {
                     var col2 = document.createElement('div');
                     col2.classList.add('col-xs-6', 'text-right');
                       var a = document.createElement('a');
+                        if (this.options.highlight_links) {
+                          a.classList.add('highlight');
+                        }
                         // a.setAttribute('data-toggle','collapse');
                         // a.setAttribute('href','#proof-' + String(proof_number));
                         a.style.border="0px";
@@ -152,6 +170,9 @@ class LaTeXer {
           var caption = document.createElement('p');
           caption.classList.add('text-center');
           var a = document.createElement('a');
+          if (this.options.highlight_links) {
+            a.classList.add('highlight');
+          }
           a.appendChild(document.createTextNode(table_number));
           a.href = "#" + id;
           caption.appendChild(document.createTextNode('Table '));
@@ -179,6 +200,9 @@ class LaTeXer {
         h3.classList.add('section');
         h3.id = id;
         var a = document.createElement('a');
+        if (this.options.highlight_links) {
+          a.classList.add('highlight');
+        }
         a.appendChild(document.createTextNode(section_number));
         a.href = "#" + id;
         h3.appendChild(a);
@@ -215,6 +239,9 @@ class LaTeXer {
       var node = stack.pop();
       if (node.tagName == "REF") {
         var a = document.createElement('a');
+        if (this.options.highlight_links) {
+          a.classList.add('highlight');
+        }
         var to = node.getAttribute('to');
         a.href = "#" + to;
         a.innerHTML = refs[to];
@@ -241,6 +268,9 @@ class LaTeXer {
         for (var s in section_tree) {
           var li = document.createElement('li');
           var a = document.createElement('a');
+          if (this.options.highlight_links) {
+            a.classList.add('highlight');
+          }
           a.innerHTML = section_tree[s].text;
           a.href = "#" + section_tree[s].id;
           li.appendChild(a);
@@ -249,6 +279,9 @@ class LaTeXer {
             for (var sub in section_tree[s].subsections) {
               var sub_li = document.createElement('li');
               var a = document.createElement('a');
+              if (this.options.highlight_links) {
+                a.classList.add('highlight');
+              }
               a.innerHTML = section_tree[s].subsections[sub].text;
               a.href = "#" + section_tree[s].subsections[sub].id;
               sub_li.appendChild(a);
@@ -302,6 +335,9 @@ class LaTeXer {
       var node = stack.pop();
       if (node.tagName == "CITE") {
         var a = document.createElement('a');
+        if (this.options.highlight_links) {
+          a.classList.add('highlight');
+        }
         var to = node.getAttribute('to');
         a.href = "#" + to;
         a.innerHTML = '[' + cites[to] + ']';
@@ -317,6 +353,9 @@ class LaTeXer {
 
     // apply style
     this.container.classList.add('LaTeX');
+
+    // typeset
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 
   }
 

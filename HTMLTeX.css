@@ -8,7 +8,7 @@
   font-size: 13pt;
 }
 
-.LaTeX a {
+.LaTeX a.highlight {
   border: 1px solid cyan;
 }
 

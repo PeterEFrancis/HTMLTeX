@@ -17,16 +17,6 @@ class LaTeXer {
 
   render() {
 
-    if(!MathJaX) {
-      throw new Error('MathJax is required and missing.');
-    }
-
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [['$','$'], ['\\(','\\)']]
-      }
-    });
-
     var nodes = this.container.childNodes;
 
     var refs = {};

@@ -8,7 +8,7 @@ const labeled_blocks_tag_types = [
 
 
 
-class LaTeXer {
+class HTMLTeX {
 
   constructor(container, MathJax, options) {
     this.container = container;
@@ -257,7 +257,7 @@ class LaTeXer {
     for (var i = 0; i < nodes.length; i++) {
       if (nodes[i].tagName == "TABLEOFCONTENTS") {
         var div = document.createElement('div');
-        div.classList.add('LaTeX-toc')
+        div.classList.add('HTMLTeX-toc')
         var heading = document.createElement('h3');
         heading.appendChild(document.createTextNode('Contents'));
         div.appendChild(heading);
@@ -349,7 +349,7 @@ class LaTeXer {
 
 
     // apply style
-    this.container.classList.add('LaTeX');
+    this.container.classList.add('HTMLTeX');
 
     // typeset
     this.MathJax.Hub.Queue(["Typeset",MathJax.Hub]);

@@ -3,68 +3,68 @@
   src: url(https://PeterEFrancis.com/HTMLTeX/fonts/lmroman8-regular.otf);
 }
 
-.LaTeX {
+.HTMLTeX {
   font-family: 'tex';
   font-size: 13pt;
 }
 
-.LaTeX a.highlight {
+.HTMLTeX a.highlight {
   border: 1px solid cyan;
 }
 
-.LaTeX blockquote {
+.HTMLTeX blockquote {
   margin-top: 20px;
 }
 
-.LaTeX .section {
+.HTMLTeX .section {
   margin-top: 50px;
 }
 
-.LaTeX .subsection {
+.HTMLTeX .subsection {
   font-size: 16pt;
 }
 
 
-.LaTeX-toc ol {
+.HTMLTeX-toc ol {
   counter-reset: item;
 }
 
-.LaTeX-toc li {
+.HTMLTeX-toc li {
   display: block;
 }
 
-.LaTeX-toc li:before {
+.HTMLTeX-toc li:before {
   content: counters(item, ".") " ";
   counter-increment: item;
 }
 
 
-.LaTeX .table-container {
+.HTMLTeX .table-container {
   width: 100%;
   margin-top: 2em;
   margin-bottom: 2em;
 }
 
-.LaTeX cite {
+.HTMLTeX cite {
   font-style: normal;
 }
 
 
-.LaTeX div.panel-body {
+.HTMLTeX div.panel-body {
   overflow: scroll;
 }
 
 @media print {
-  .LaTeX .collapse {
+  .HTMLTeX .collapse {
     display: block !important;
     height: auto !important;
   }
 
-  .LaTeX a {
+  .HTMLTeX a {
     border: 0px;
   }
 
-  .LaTeX .glyphicon-collapse-down, .LaTeX .glyphicon-collapse-up{
+  .HTMLTeX .glyphicon-collapse-down, .HTMLTeX .glyphicon-collapse-up{
     display: none;
   }
 

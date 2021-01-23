@@ -1,8 +1,11 @@
 # HTMLTeX
 
+[![GitHub version](https://badge.fury.io/gh/boennemann%2Fbadges.svg)](http://badge.fury.io/gh/boennemann%2Fbadges)
+
+
 This is a CSS+JS tool for making HTML look like LaTeX.
 
-**See a live [Example](examples) here.**
+**See a live [Example](https://peterefrancis.com/HTMLTeX/examples/) here.**
 
 Dependencies:
  - Bootstap (and jQuery)

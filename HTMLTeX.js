@@ -12,7 +12,7 @@ class LaTeXer {
 
   constructor(container, options) {
     this.container = container;
-    this.options = options;
+    this.options = options | {};
   }
 
   render() {

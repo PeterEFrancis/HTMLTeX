@@ -1,9 +1,3 @@
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']]
-  }
-});
-
 
 const labeled_blocks_tag_types = [
   'DEFINITION',

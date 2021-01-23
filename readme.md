@@ -38,7 +38,7 @@ Create an element in the body of the HTML doc that you would like to make look l
 ```
 
 `render()` can take an optional JSON with the following optional keys:
-  - `highlight_links`: true|false
+  - `highlight_links`: (true|false)
     - Set to true for cyan outlines of links
 
 ## New and modified HTML Tags for use

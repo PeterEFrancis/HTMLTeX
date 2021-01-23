@@ -10,12 +10,19 @@ const labeled_blocks_tag_types = [
 
 class LaTeXer {
 
-  constructor(container, options) {
+  constructor(container, MathJax, options) {
     this.container = container;
+    this.MathJax = MathJax;
     this.options = options || {};
   }
 
   render() {
+
+    this.MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']]
+      }
+    });
 
     var nodes = this.container.childNodes;
 
@@ -345,7 +352,7 @@ class LaTeXer {
     this.container.classList.add('LaTeX');
 
     // typeset
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    this.MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 
   }
 

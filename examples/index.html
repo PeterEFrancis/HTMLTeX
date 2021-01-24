@@ -5,110 +5,115 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
     <!-- MathJax -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
 
     <!-- LaTeXer -->
+    <!-- <script src="../HTMLTeX.js"></script>
+    <link rel="stylesheet" href="../HTMLTeX.css"> -->
+
     <script src="https://PeterEFrancis.com/HTMLTeX/HTMLTeX.js"></script>
     <link rel="stylesheet" href="https://PeterEFrancis.com/HTMLTeX/HTMLTeX.css">
 
+    <style>
+      body {
+        max-width: 700px;
+        margin: auto;
+        padding: 20px;
+      }
+    </style>
+
   </head>
+
   <body>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12" id="LaTeX">
-          <div hidden>
-          \(
-            \newcommand{\R}{\mathbb{R}}
-            \newcommand{\N}{\mathbb{N}}
-          \)
-          </div>
-
-
-          <h1>Title</h1>
-          <em>Author</em>
-          <hr>
-          <tableofcontents></tableofcontents>
-          <hr>
-
-
-
-          <section id="section-1-custom-id">Custom Section 1 Name</section>
-
-          This is some text. Blah blah blah. You can still use formatted text like <strong>bold</strong> and <em>italics</em>.
-          <br>
-          You can use math typsetting, thanks to MathJax. Both inline $m\alpha t \mathcal{H}$ and centered
-          $$e^qua=t_ion\int.$$
-
-
-          <definition id="custom-definition-id">
-            A <em>thing</em> is a thing.
-          </definition>
-
-          You can reference a definition like this: <ref to="custom-definition-id"></ref>
-
-
-          <section id="section-2-custom-id">Custom Section 2 Name</section>
-
-          <lemma id="custom-lemma-id">
-            Nouns are words.
-          </lemma>
-          <theorem id="custom-theorem-id" title="Custom Theorem Title">
-            A thing is a noun.
-          </theorem>
-          <proof collapse=true open=false>
-            My english teacher told me so.
-          </proof>
-
-          Proofs can be collapsable. If a proof is set to <code>collapse="true"</code>, then the attribute <code>open</code> can be set to true or false to determine the default state of the collapsable proof.
-          <br>
-          Cite a reference <cite to="ref-custom-id-1"></cite>. Make a table:
-
-          <table class="table-bordered" id="custom-table-id" caption="Custom Table Caption">
-            <thead>
-              <tr>
-                <th>Top Left corner</th>
-                <th>column 1</th>
-                <th>column 2</th>
-                <th>column 3</th>
-              </tr>
-            <thead>
-            <tbody>
-              <tr>
-                <th>row 1</th>
-                <td>$a$</td>
-                <td>$b$</td>
-                <td>$c$</td>
-              </tr>
-              <tr>
-                <th>row 2</th>
-                <td>$d$</td>
-                <td>$e$</td>
-                <td>$f$</td>
-              </tr>
-              <tr>
-                <th>row 3</th>
-                <td>$g$</td>
-                <td>$h$</td>
-                <td>$i$</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <hr>
-          <references>
-            <item id="ref-custom-id-1">Frist M. Last, <em>Title 1</em>, Press, Year.</item>
-            <item id="ref-custom-id-2">Frist M. Last, <em>Title 2</em>, Press, Year.</item>
-          </references>
-
-        </div>
+    <div id="LaTeX">
+      <div hidden>
+      \(
+        \newcommand{\R}{\mathbb{R}}
+        \newcommand{\N}{\mathbb{N}}
+      \)
       </div>
+
+
+      <h1>Title</h1>
+      <em>Author</em>
+      <hr>
+      <tableofcontents></tableofcontents>
+      <hr>
+
+
+
+      <section id="section-1-custom-id">Custom Section 1 Name</section>
+
+      This is some text. Blah blah blah. You can still use formatted text like <strong>bold</strong> and <em>italics</em>.
+      <br>
+      You can use math typsetting, thanks to MathJax. Both inline $m\alpha t \mathcal{H}$ and centered
+      $$e^qua=t_ion\int.$$
+
+
+      <definition id="custom-definition-id">
+        A <em>thing</em> is a thing.
+      </definition>
+
+      You can reference a definition like this: <ref to="custom-definition-id"></ref>
+
+
+      <section id="section-2-custom-id">Custom Section 2 Name</section>
+
+      <lemma id="custom-lemma-id">
+        Nouns are words.
+      </lemma>
+      <proof collapse="false">
+        This lemma is left as an exercise to the reader.
+      </proof>
+      <theorem id="custom-theorem-id" title="Custom Theorem Title">
+        A thing is a noun.
+      </theorem>
+      <proof collapse="true" open="false">
+        My english teacher told me so.
+      </proof>
+
+      Proofs can be collapsable. If a proof is set to <code>collapse="true"</code>, then the attribute <code>open</code> can be set to true or false to determine the default state of the collapsable proof.
+      <br>
+      Cite a reference <cite to="ref-custom-id-1"></cite>. Make a table:
+
+      <table class="table-bordered" id="custom-table-id" caption="Custom Table Caption">
+        <thead>
+          <tr>
+            <th>Top Left corner</th>
+            <th>column 1</th>
+            <th>column 2</th>
+            <th>column 3</th>
+          </tr>
+        <thead>
+        <tbody>
+          <tr>
+            <th>row 1</th>
+            <td>$a$</td>
+            <td>$b$</td>
+            <td>$c$</td>
+          </tr>
+          <tr>
+            <th>row 2</th>
+            <td>$d$</td>
+            <td>$e$</td>
+            <td>$f$</td>
+          </tr>
+          <tr>
+            <th>row 3</th>
+            <td>$g$</td>
+            <td>$h$</td>
+            <td>$i$</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr>
+      <references>
+        <item id="ref-custom-id-1">Frist M. Last, <em>Title 1</em>, Press, Year.</item>
+        <item id="ref-custom-id-2">Frist M. Last, <em>Title 2</em>, Press, Year.</item>
+      </references>
+
     </div>
 
   </body>

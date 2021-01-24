@@ -5,7 +5,6 @@ This is a CSS+JS tool for making HTML look like LaTeX.
 **See a live [Example](https://peterefrancis.com/HTMLTeX/examples/) here.**
 
 Dependencies:
- - Bootstap (and jQuery)
  - MathJax
 
 ## Usage
@@ -16,24 +15,21 @@ Include the following in the head of your HTML doc:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
 <!-- MathJax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
 
 <!-- HTMLTeX -->
-<script src="https://cdn.jsdelivr.net/gh/PeterEFrancis/HTMLTeX/HTMLTeX.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/PeterEFrancis/HTMLTeX/HTMLTeX.min.css">
+<script src="https://PeterEFrancis.com/HTMLTeX/HTMLTeX.js"></script>
+<link rel="stylesheet" href="https://PeterEFrancis.com/HTMLTeX/HTMLTeX.css">
 ```
 
 Create an element in the body of the HTML doc that you would like to make look like LaTeX. Then include this script at the bottom of the page. Make sure the first argument to the `HTMLTeX` constructor is your intended LaTeX element.
 
 ```HTML
 <script type="text/x-mathjax-config">
-  new HTMLTeX(document.getElementById('LaTeX'), MathJax).render();
+  new HTMLTeX(document.getElementById('LaTeX'), MathJax).render(
+    // options
+  );
 </script>
 ```
 
@@ -61,8 +57,7 @@ The benefit of **HTMLTeX** is the easy use of new and modified HTML tags. The li
   - **open**: (true|false) set default mode for collapsable proof box to be open
 - `<ref>` in-page reference link
   - **to**: id of referenced tag
-- `<cite>` in-page citation link
-  - **to**: id of referenced references item
+
 - `<references>` references section
 - `<item>` reference in the references section
   - **id**: unique ID for use of on-page cite links
@@ -71,6 +66,9 @@ The benefit of **HTMLTeX** is the easy use of new and modified HTML tags. The li
 #### Modified Tags
 
 - `<br>` line break (extra line)
+- `<hr>` horizontal line (grey)
 - `<table>`
   - **id**: unique ID for use of on-page refs links
   - **caption**: Custom Table Caption
+- `<cite>` in-page citation link
+  - **to**: id of referenced references item

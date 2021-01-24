@@ -33,6 +33,19 @@
 
 
 
+.HTMLTeX .text-left {
+  text-align:left
+}
+
+.HTMLTeX .text-right {
+  text-align:right;
+}
+
+.HTMLTeX .text-center {
+  text-align:center;
+}
+
+
 
 .HTMLTeX blockquote {
   padding:10px 20px;
@@ -218,7 +231,7 @@
     float:none
 }
 
-.HTMLTeX th{
+.HTMLTeX th {
     text-align:left
 }
 

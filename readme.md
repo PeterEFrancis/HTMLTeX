@@ -1,11 +1,8 @@
 # HTMLTeX
 
-This is a CSS+JS tool for making HTML look like LaTeX.
+This is a JS+CSS tool for making HTML look like LaTeX.
 
 **See a live [Example](https://peterefrancis.com/HTMLTeX/examples/) here.**
-
-Dependencies:
- - MathJax
 
 ## Usage
 

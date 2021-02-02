@@ -87,15 +87,13 @@ class HTMLTeX {
           var span = document.createElement('span'); span.classList.add('proof-toggle');
           const pn = proof_number;
           span.onclick = function(e) {
-            let panel_collapse = document.getElementById('proof-' + pn);
-            if (panel_collapse.classList.contains('proof-closed')){
-              this.innerHTML = "▲";
-              console.log('open');
+            let proof_panel = document.getElementById('proof-' + pn);
+            if (proof_panel.classList.contains('proof-closed')){
               proof_panel.classList.remove('proof-closed');
+              this.innerHTML = "▲";
             } else {
-              this.innerHTML = "▼";
-              console.log('closed');
               proof_panel.classList.add('proof-closed');
+              this.innerHTML = "▼";
             }
           }
 
@@ -110,11 +108,10 @@ class HTMLTeX {
           this.container.replaceChild(proof_panel, nodes[i]);
 
           if (open) {
-            proof_panel.classList.add('proof-closed');
-            span.innerHTML = "▼";
-            console.log(span);
-          } else {
             span.innerHTML = "▲";
+          } else {
+            span.innerHTML = "▼";
+            proof_panel.classList.add('proof-closed');
           }
 
         } else {

@@ -1,6 +1,6 @@
 # HTMLTeX
 
-This is a JS+CSS tool for making HTML look like LaTeX.
+This is a JS+CSS tool for making HTML behave and look like LaTeX.
 
 **See a live [Example](https://peterefrancis.com/HTMLTeX/examples/) here.**
 

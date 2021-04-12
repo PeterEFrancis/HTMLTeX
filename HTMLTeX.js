@@ -25,25 +25,25 @@ class HTMLTeX {
       }
     });
 
-    var nodes = this.container.childNodes;
+    let nodes = this.container.childNodes;
 
-    var refs = {};
-    var section_tree = {};
+    let refs = {};
+    let section_tree = {};
 
     // labeled blocks nodes
-    var block_number = 1;
-    for (var i = 0; i < nodes.length; i++) {
+    let block_number = 1;
+    for (let i = 0; i < nodes.length; i++) {
       if (labeled_blocks_tag_types.includes(nodes[i].tagName)) {
-        var id = nodes[i].id || nodes[i].tagName.toLowerCase() + '-' + block_number;
-        var blockquote = document.createElement('blockquote');
-        var strong = document.createElement('strong');
-        var text = document.createElement('p');
+        let id = nodes[i].id || nodes[i].tagName.toLowerCase() + '-' + block_number;
+        let blockquote = document.createElement('blockquote');
+        let strong = document.createElement('strong');
+        let text = document.createElement('p');
         strong.appendChild(
           document.createTextNode(
             nodes[i].tagName.charAt(0).toUpperCase() + nodes[i].tagName.slice(1).toLowerCase() + " "
           )
         );
-        var a = document.createElement('a');
+        let a = document.createElement('a');
         if (options.highlight_links) {
           a.classList.add('highlight');
         }
@@ -66,25 +66,25 @@ class HTMLTeX {
     }
 
     // proofs
-    var proof_number = 1;
-    for (var i = 0; i < nodes.length; i++) {
+    let proof_number = 1;
+    for (let i = 0; i < nodes.length; i++) {
       if (nodes[i].tagName == "PROOF") {
 
-        var proof = document.createElement('p');
+        let proof = document.createElement('p');
         proof.innerHTML = nodes[i].innerHTML;
         proof.style.margin = "0px";
-        var right = document.createElement('div');
+        let right = document.createElement('div');
         right.classList.add('text-right');
         right.appendChild(document.createTextNode('$\\blacksquare$'));
         proof.appendChild(right);
 
         if (nodes[i].getAttribute('collapse') == "true") {
-          var open = nodes[i].getAttribute('open') == "true";
-          var proof_panel = document.createElement('div'); proof_panel.classList.add('proof-panel'); proof_panel.setAttribute('id', 'proof-' + String(proof_number))
-          var panel_heading = document.createElement('div'); panel_heading.classList.add('proof-heading');
-          var panel_body = document.createElement('div'); panel_body.classList.add('proof-body');
-          var em = document.createElement('em'); em.appendChild(document.createTextNode('Proof.'))
-          var span = document.createElement('span'); span.classList.add('proof-toggle');
+          let open = nodes[i].getAttribute('open') == "true";
+          let proof_panel = document.createElement('div'); proof_panel.classList.add('proof-panel'); proof_panel.setAttribute('id', 'proof-' + String(proof_number))
+          let panel_heading = document.createElement('div'); panel_heading.classList.add('proof-heading');
+          let panel_body = document.createElement('div'); panel_body.classList.add('proof-body');
+          let em = document.createElement('em'); em.appendChild(document.createTextNode('Proof.'))
+          let span = document.createElement('span'); span.classList.add('proof-toggle');
           const pn = proof_number;
           span.onclick = function(e) {
             let proof_panel = document.getElementById('proof-' + pn);
@@ -115,8 +115,8 @@ class HTMLTeX {
           }
 
         } else {
-          var div = document.createElement('div');
-          var em = document.createElement('em');
+          let div = document.createElement('div');
+          let em = document.createElement('em');
           em.appendChild(document.createTextNode('Proof.'));
           div.appendChild(em);
           div.appendChild(proof);
@@ -127,20 +127,20 @@ class HTMLTeX {
     }
 
     // tables
-    var table_number = 1;
-    for (var i = 0; i < nodes.length; i++) {
+    let table_number = 1;
+    for (let i = 0; i < nodes.length; i++) {
       if (nodes[i].tagName == "TABLE") {
-        var id = nodes[i].id || 'table-' + table_number;
-        var caption_text = nodes[i].getAttribute('caption');
+        let id = nodes[i].id || 'table-' + table_number;
+        let caption_text = nodes[i].getAttribute('caption');
         nodes[i].classList.add('table');
         nodes[i].id = undefined;
-        var table_container = document.createElement('div');
+        let table_container = document.createElement('div');
         table_container.classList.add('table-container');
         table_container.appendChild(nodes[i].cloneNode(true));
         if (caption_text) {
-          var caption = document.createElement('p');
+          let caption = document.createElement('p');
           caption.classList.add('text-center');
-          var a = document.createElement('a');
+          let a = document.createElement('a');
           if (options.highlight_links) {
             a.classList.add('highlight');
           }
@@ -160,17 +160,17 @@ class HTMLTeX {
 
 
     // sections and subsections
-    var section_number = 0;
-    var subsection_number = 0;
-    for (var i = 0; i < nodes.length; i++) {
+    let section_number = 0;
+    let subsection_number = 0;
+    for (let i = 0; i < nodes.length; i++) {
       if (nodes[i].tagName == "SECTION") {
         section_number++;
-        var text = nodes[i].innerHTML;
-        var id = nodes[i].id || "section-" + section_number;
-        var h3 = document.createElement('h3');
+        let text = nodes[i].innerHTML;
+        let id = nodes[i].id || "section-" + section_number;
+        let h3 = document.createElement('h3');
         h3.classList.add('section');
         h3.id = id;
-        var a = document.createElement('a');
+        let a = document.createElement('a');
         if (options.highlight_links) {
           a.classList.add('highlight');
         }
@@ -188,16 +188,16 @@ class HTMLTeX {
         };
       } else if (nodes[i].tagName == "SUBSECTION") {
         subsection_number++;
-        var text = nodes[i].innerHTML;
-        var id = nodes[i].id || "subsection-" + section_number + "." + section_number;
-        var h4 = document.createElement('h4');
+        let text = nodes[i].innerHTML;
+        let id = nodes[i].id || "subsection-" + section_number + "." + subsection_number;
+        let h4 = document.createElement('h4');
         h4.classList.add('subsection');
         h4.id = id;
-        var a = document.createElement('a');
+        let a = document.createElement('a');
         if (options.highlight_links) {
           a.classList.add('highlight');
         }
-        a.appendChild(document.createTextNode(section_number + "." + section_number));
+        a.appendChild(document.createTextNode(section_number + "." + subsection_number));
         a.href = "#" + id;
         h4.appendChild(a);
         h4.innerHTML += "  " + text;
@@ -213,21 +213,21 @@ class HTMLTeX {
 
     // build refs
     // recursive search
-    var stack = [this.container];
-    while (stack.length > 0) {
-      var node = stack.pop();
+    let r_stack = [this.container];
+    while (r_stack.length > 0) {
+      let node = r_stack.pop();
       if (node.tagName == "REF") {
-        var a = document.createElement('a');
+        let a = document.createElement('a');
         if (options.highlight_links) {
           a.classList.add('highlight');
         }
-        var to = node.getAttribute('to');
+        let to = node.getAttribute('to');
         a.href = "#" + to;
         a.innerHTML = refs[to];
         node.appendChild(a);
       } else if (node.childNodes && node.childNodes.length != 0) {
-        for (var i = 0; i < node.childNodes.length; i++) {
-          stack.push(node.childNodes[i]);
+        for (let i = 0; i < node.childNodes.length; i++) {
+          r_stack.push(node.childNodes[i]);
         }
       }
     }
@@ -236,17 +236,17 @@ class HTMLTeX {
 
 
     // build table of contents
-    for (var i = 0; i < nodes.length; i++) {
+    for (let i = 0; i < nodes.length; i++) {
       if (nodes[i].tagName == "TABLEOFCONTENTS") {
-        var div = document.createElement('div');
+        let div = document.createElement('div');
         div.classList.add('HTMLTeX-toc')
-        var heading = document.createElement('h3');
+        let heading = document.createElement('h3');
         heading.appendChild(document.createTextNode('Contents'));
         div.appendChild(heading);
-        var ol = document.createElement('ol');
-        for (var s in section_tree) {
-          var li = document.createElement('li');
-          var a = document.createElement('a');
+        let ol = document.createElement('ol');
+        for (let s in section_tree) {
+          let li = document.createElement('li');
+          let a = document.createElement('a');
           if (options.highlight_links) {
             a.classList.add('highlight');
           }
@@ -254,10 +254,10 @@ class HTMLTeX {
           a.href = "#" + section_tree[s].id;
           li.appendChild(a);
           if (section_tree[s].subsections[1]) {
-            var sub_ol = document.createElement('ol');
-            for (var sub in section_tree[s].subsections) {
-              var sub_li = document.createElement('li');
-              var a = document.createElement('a');
+            let sub_ol = document.createElement('ol');
+            for (let sub in section_tree[s].subsections) {
+              let sub_li = document.createElement('li');
+              let a = document.createElement('a');
               if (options.highlight_links) {
                 a.classList.add('highlight');
               }
@@ -278,21 +278,21 @@ class HTMLTeX {
 
 
     // build references (citations)
-    var cites = {};
-    for (var i = 0; i < nodes.length; i++) {
+    let cites = {};
+    for (let i = 0; i < nodes.length; i++) {
       if (nodes[i].tagName == "REFERENCES") {
-        var items = nodes[i].childNodes;
-        var div = document.createElement('div');
-        var h3 = document.createElement('h3');
+        let items = nodes[i].childNodes;
+        let div = document.createElement('div');
+        let h3 = document.createElement('h3');
         h3.appendChild(document.createTextNode('References'));
         div.appendChild(h3);
-        var ol = document.createElement('ol');
-        var cite_num = 1;
-        for (var j = 0; j < items.length; j++) {
+        let ol = document.createElement('ol');
+        let cite_num = 1;
+        for (let j = 0; j < items.length; j++) {
           if (items[j].tagName == "ITEM") {
-            var id = items[j].getAttribute('id') || 'cite-' + cite_num;
+            let id = items[j].getAttribute('id') || 'cite-' + cite_num;
             cites[id] = cite_num;
-            var li = document.createElement('li');
+            let li = document.createElement('li');
             li.innerHTML = items[j].innerHTML;
             li.setAttribute('id', id);
             ol.appendChild(li);
@@ -309,21 +309,21 @@ class HTMLTeX {
 
     // build cites
     // recursive search
-    var stack = [this.container];
-    while (stack.length > 0) {
-      var node = stack.pop();
+    let c_stack = [this.container];
+    while (c_stack.length > 0) {
+      let node = c_stack.pop();
       if (node.tagName == "CITE") {
-        var a = document.createElement('a');
+        let a = document.createElement('a');
         if (options.highlight_links) {
           a.classList.add('highlight');
         }
-        var to = node.getAttribute('to');
+        let to = node.getAttribute('to');
         a.href = "#" + to;
         a.innerHTML = '[' + cites[to] + ']';
         node.appendChild(a);
       } else if (node.childNodes && node.childNodes.length != 0) {
-        for (var i = 0; i < node.childNodes.length; i++) {
-          stack.push(node.childNodes[i]);
+        for (let i = 0; i < node.childNodes.length; i++) {
+          c_stack.push(node.childNodes[i]);
         }
       }
     }

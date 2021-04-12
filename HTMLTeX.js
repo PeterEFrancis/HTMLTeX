@@ -193,7 +193,14 @@ class HTMLTeX {
         var h4 = document.createElement('h4');
         h4.classList.add('subsection');
         h4.id = id;
-        h4.innerHTML = section_number + "." + subsection_number + "  " + text;
+        var a = document.createElement('a');
+        if (options.highlight_links) {
+          a.classList.add('highlight');
+        }
+        a.appendChild(document.createTextNode(section_number + "." + section_number));
+        a.href = "#" + id;
+        h3.appendChild(a);
+        h4.innerHTML += "  " + text;
         this.container.replaceChild(h4, nodes[i]);
         refs[id] = section_number + "." + subsection_number;
         section_tree[section_number].subsections[subsection_number] = {

@@ -199,7 +199,7 @@ class HTMLTeX {
         }
         a.appendChild(document.createTextNode(section_number + "." + section_number));
         a.href = "#" + id;
-        h3.appendChild(a);
+        h4.appendChild(a);
         h4.innerHTML += "  " + text;
         this.container.replaceChild(h4, nodes[i]);
         refs[id] = section_number + "." + subsection_number;

@@ -52,7 +52,7 @@ class HTMLTeX {
         strong.appendChild(a);
         strong.appendChild(document.createTextNode('.'));
         if (nodes[i].title) {
-          strong.appendChild(document.createTextNode(' ' + nodes[i].title + '.'))
+          strong.innerHTML += ' ' + nodes[i].title + '.';
         }
         text.innerHTML = nodes[i].innerHTML;
         blockquote.appendChild(strong);

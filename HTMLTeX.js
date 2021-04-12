@@ -193,7 +193,7 @@ class HTMLTeX {
         var h4 = document.createElement('h4');
         h4.classList.add('subsection');
         h4.id = id;
-        h4.appendChild(document.createTextNode(section_number + "." + subsection_number + "  " + text));
+        h4.innerHTML = section_number + "." + subsection_number + "  " + text;
         this.container.replaceChild(h4, nodes[i]);
         refs[id] = section_number + "." + subsection_number;
         section_tree[section_number].subsections[subsection_number] = {

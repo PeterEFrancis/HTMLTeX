@@ -177,7 +177,7 @@ class HTMLTeX {
         a.appendChild(document.createTextNode(section_number));
         a.href = "#" + id;
         h3.appendChild(a);
-        h3.appendChild(document.createTextNode(" " + text));
+        h3.innerHTML += " " + text;
         this.container.replaceChild(h3, nodes[i]);
         subsection_number = 0;
         refs[id] = section_number;
@@ -327,7 +327,7 @@ class HTMLTeX {
     this.container.classList.add('HTMLTeX');
 
     // typeset
-    this.MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    this.MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 
   }
 

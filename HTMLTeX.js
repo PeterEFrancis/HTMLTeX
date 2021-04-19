@@ -25,6 +25,14 @@ class HTMLTeX {
         .replaceAll('$' + symb, symb + '$$');
     }
 
+    // while (this.container.innerHTML.includes('\n\n\n')) {
+    //   this.container.innerHTML = this.container.innerHTML.replaceAll('\n\n', '\n');
+    // }
+    this.container.innerHTML = this.container.innerHTML.replaceAll('\n\n', '<br>');
+
+
+
+
     this.MathJax.Hub.Config({
       tex2jax: {
         inlineMath: [['$','$'], ['\\(','\\)']]

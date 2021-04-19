@@ -19,6 +19,12 @@ class HTMLTeX {
 
   render(options) {
 
+    for (let symb of [",", ".", ";", ":"]) {
+      this.container.innerHTML = this.container.innerHTML
+        .replaceAll('$$' + symb, symb + '$$$$')
+        .replaceAll('$' + symb, symb + '$$');
+    }
+
     this.MathJax.Hub.Config({
       tex2jax: {
         inlineMath: [['$','$'], ['\\(','\\)']]

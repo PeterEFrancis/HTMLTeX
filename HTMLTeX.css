@@ -286,9 +286,14 @@
 
 
 @media print {
-  .HTMLTeX .collapse {
-    display: block !important;
-    height: auto !important;
+  .HTMLTeX .proof-closed > .proof-body {
+    display: block;
+  }
+
+  .HTMLTeX .proof-closed > .proof-heading {
+    border-bottom: 1px solid #ddd;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
   }
 
   .HTMLTeX a {

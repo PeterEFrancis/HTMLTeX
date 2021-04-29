@@ -309,13 +309,21 @@ class HTMLTeX {
 
     // build references (citations)
     let cites = {};
+    let ref_num = 1;
     for (let i = 0; i < nodes.length; i++) {
       if (nodes[i].tagName == "REFERENCES") {
         let items = nodes[i].childNodes;
         let div = document.createElement('div');
+        let a = document.createElement('a');
+        a.href = "#references" + (ref_num > 1 ? '-' + ref_num : '');
+        if (options.highlight_links) {
+          a.classList.add('highlight');
+        }
         let h3 = document.createElement('h3');
-        h3.appendChild(document.createTextNode('References'));
+        h3.setAttribute('id', "references" + (ref_num > 1 ? '-' + ref_num : ''));
+        a.appendChild(document.createTextNode('References'));
         div.appendChild(h3);
+        h3.appendChild(a);
         let ol = document.createElement('ol');
         let cite_num = 1;
         for (let j = 0; j < items.length; j++) {

@@ -1,11 +1,21 @@
 @font-face {
   font-family: 'tex';
-  src: url(https://PeterEFrancis.com/HTMLTeX/fonts/lmroman8-regular.otf);
+  src: url(fonts/lmroman8-regular.otf);
+}
+
+@font-face {
+  font-family: 'btex';
+  src: url(fonts/LMRoman10-Bold.ttf.woff);
 }
 
 .HTMLTeX {
   font-family: 'tex';
   font-size: 13pt;
+}
+
+.HTMLTeX strong, .HTMLTeX b {
+  font-family: 'btex';
+
 }
 
 .HTMLTeX a.highlight {

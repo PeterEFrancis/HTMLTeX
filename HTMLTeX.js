@@ -51,10 +51,9 @@ class HTMLTeX {
       if (nodes[i].tagName == "ABSTRACT") {
         let abstract = document.createElement('div');
         abstract.classList.add('abstract');
-        let span = document.createElement('span');
-        span.innerHTML = 'Abstract. ';
-        span.style.fontWieght = 'bold';
-        abstract.appendChild(span);
+        let strong = document.createElement('strong');
+        strong.innerHTML = 'Abstract. ';
+        abstract.appendChild(strong);
         abstract.innerHTML += nodes[i].innerHTML;
         this.container.replaceChild(abstract, nodes[i]);
       }

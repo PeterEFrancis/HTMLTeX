@@ -318,3 +318,11 @@
   }
 
 }
+
+
+.HTMLTeX .abstract {
+  text-align: justify;
+  margin: auto;
+  min-width: min(100%, 300px);
+  width: 80%;
+}

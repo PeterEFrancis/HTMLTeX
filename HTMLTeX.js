@@ -39,10 +39,27 @@ class HTMLTeX {
       }
     });
 
+
+
     let nodes = this.container.childNodes;
 
     let refs = {};
     let section_tree = {};
+
+    // abstract
+    for (let i = 0; i < nodes.length; i++) {
+      if (nodes[i].tagName == "ABSTRACT") {
+        let abstract = document.createElement('div');
+        abstract.classList.add('abstract');
+        let span = document.createElement('span');
+        span.innerHTML = 'Abstract. ';
+        span.style.fontWieght = 'bold';
+        abstract.appendChild(span);
+        abstract.innerHTML += nodes[i].innerHTML;
+        this.container.replaceChild(abstract, nodes[i]);
+      }
+    }
+
 
     // labeled blocks nodes
     let block_number = 1;

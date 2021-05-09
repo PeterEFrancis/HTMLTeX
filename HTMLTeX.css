@@ -336,3 +336,8 @@
   min-width: min(100%, 300px);
   width: 80%;
 }
+
+
+.HTMLTeX .references * {
+  font-size: 0.85em;
+}

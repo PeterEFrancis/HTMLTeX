@@ -325,6 +325,7 @@ class HTMLTeX {
         div.appendChild(h3);
         h3.appendChild(a);
         let ol = document.createElement('ol');
+        ol.classList.add('references');
         let cite_num = 1;
         for (let j = 0; j < items.length; j++) {
           if (items[j].tagName == "ITEM") {

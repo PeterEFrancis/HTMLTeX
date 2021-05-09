@@ -351,14 +351,17 @@
 
 .HTMLTeX .references > li {
   counter-increment: customlistcounter;
+  display: table-row;
 }
+
 
 .HTMLTeX .references > li:before {
   content: "[" counter(customlistcounter) "]";
   font-weight: bold;
-  float: left;
   width: 2em;
+  display: table-cell;
 }
+
 
 .HTMLTeX .references:first-child {
   counter-reset: customlistcounter;

@@ -341,3 +341,25 @@
 .HTMLTeX .references * {
   font-size: 0.85em;
 }
+
+
+
+.HTMLTeX .references {
+  list-style-type: none;
+  margin-left: 0;
+}
+
+.HTMLTeX .references > li {
+  counter-increment: customlistcounter;
+}
+
+.HTMLTeX .references > li:before {
+  content: "[" counter(customlistcounter) "]";
+  font-weight: bold;
+  float: left;
+  width: 2em;
+}
+
+.HTMLTeX .references:first-child {
+  counter-reset: customlistcounter;
+}

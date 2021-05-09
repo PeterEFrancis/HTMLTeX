@@ -321,6 +321,7 @@ class HTMLTeX {
         }
         let h3 = document.createElement('h3');
         h3.setAttribute('id', "references" + (ref_num > 1 ? '-' + ref_num : ''));
+        ref_num++;
         a.appendChild(document.createTextNode('References'));
         div.appendChild(h3);
         h3.appendChild(a);

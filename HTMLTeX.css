@@ -358,8 +358,9 @@
 .HTMLTeX .references > li:before {
   content: "[" counter(customlistcounter) "]";
   font-weight: bold;
-  width: 2em;
+  padding-right: 1em;
   display: table-cell;
+  text-align: right;
 }
 
 

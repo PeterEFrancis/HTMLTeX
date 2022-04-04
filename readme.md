@@ -31,7 +31,7 @@ Create an element in the body of the HTML doc that you would like to make look l
 ```
 
 `render()` can take an optional JSON with the following optional keys:
-  - `highlight_links`: (true|false)
+  - `highlight_links`: (true/false)
     - Set to true for cyan outlines of links
 
 ## New and modified HTML Tags for use
@@ -50,8 +50,8 @@ The benefit of **HTMLTeX** is the easy use of new and modified HTML tags. The li
 - `<theorem>` theorem environment
   - **id**: unique ID for use of on-page refs links
 - `<proof>` proof environment
-  - **collapse**: (true|false) set mode of proof box to be collapsable or not
-  - **open**: (true|false) set default mode for collapsable proof box to be open
+  - **collapse**: (true/false) set mode of proof box to be collapsable or not
+  - **open**: (true/false) set default mode for collapsable proof box to be open
 - `<ref>` in-page reference link
   - **to**: id of referenced tag
 

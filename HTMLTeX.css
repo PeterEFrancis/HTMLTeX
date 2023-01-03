@@ -85,6 +85,10 @@
   font-size: 16pt;
 }
 
+.HTMLTeX .subsubsection {
+  font-size: 14pt;
+}
+
 
 .HTMLTeX-toc ol {
   counter-reset: item;
@@ -178,7 +182,7 @@
   color:inherit
 }
 
-.HTMLTeX h1,.HTMLTeX h2,.HTMLTeX h3{
+.HTMLTeX h1,.HTMLTeX h2,.HTMLTeX h3 {
   margin-top:20px;
   margin-bottom:10px
 }
@@ -196,7 +200,7 @@
   font-size:18px
 }
 .HTMLTeX h5{
-  font-size:14px
+  font-size:13pt
 }
 .HTMLTeX h6{
   font-size:12px

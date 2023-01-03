@@ -6,6 +6,10 @@ const labeled_blocks_tag_types = [
   'DEFINITION',
   'THEOREM',
   'LEMMA',
+  'PROPOSITION',
+  'REMARK',
+  'COROLLARY',
+  'EXAMPLE'
 ];
 
 
@@ -192,6 +196,7 @@ class HTMLTeX {
     // sections and subsections
     let section_number = 0;
     let subsection_number = 0;
+    let subsubsection_number = 0;
     for (let i = 0; i < nodes.length; i++) {
       if (nodes[i].tagName == "SECTION") {
         section_number++;
@@ -210,6 +215,7 @@ class HTMLTeX {
         h3.innerHTML += " " + text;
         this.container.replaceChild(h3, nodes[i]);
         subsection_number = 0;
+        subsubsection_number = 0;
         refs[id] = section_number;
         section_tree[section_number] = {
           text: text,
@@ -232,7 +238,30 @@ class HTMLTeX {
         h4.appendChild(a);
         h4.innerHTML += "  " + text;
         this.container.replaceChild(h4, nodes[i]);
+        subsubsection_number = 0;
         refs[id] = section_number + "." + subsection_number;
+        section_tree[section_number].subsections[subsection_number] = {
+          text: text,
+          id: id
+        };
+      } else if (nodes[i].tagName == "SUBSUBSECTION") {
+        subsubsection_number++;
+        let text = nodes[i].innerHTML;
+        let id_num = section_number + "." + subsection_number + "." + subsubsection_number;
+        let id = nodes[i].id || "subsubsection-" + id_num;
+        let h5 = document.createElement('h5');
+        h5.classList.add('subsubsection');
+        h5.id = id;
+        let a = document.createElement('a');
+        if (options.highlight_links) {
+          a.classList.add('highlight');
+        }
+        a.appendChild(document.createTextNode(id_num));
+        a.href = "#" + id;
+        h5.appendChild(a);
+        h5.innerHTML += "  " + text;
+        this.container.replaceChild(h5, nodes[i]);
+        refs[id] = id_num;
         section_tree[section_number].subsections[subsection_number] = {
           text: text,
           id: id

@@ -45,10 +45,9 @@ The benefit of **HTMLTeX** is the easy use of new and modified HTML tags. The li
   - **id**: unique ID for use of on-page refs links
 - `<definition>` definition environment
   - **id**: unique ID for use of on-page refs links
-- `<lemma>` lemma environment
+- `<lemma>`, `<theorem>`, `<proposition>`, `<corollary>`, `<example>`, `<remark>` numbered block environment
   - **id**: unique ID for use of on-page refs links
-- `<theorem>` theorem environment
-  - **id**: unique ID for use of on-page refs links
+  - **title**: bolded title of theorem
 - `<proof>` proof environment
   - **collapse**: (true|false) set mode of proof box to be collapsable or not
   - **open**: (true|false) set default mode for collapsable proof box to be open

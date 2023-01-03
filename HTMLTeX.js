@@ -143,12 +143,11 @@ class HTMLTeX {
     //example modals
     let example_modal_num = 1;
     for (let i = 0; i < nodes.length; i++) {
-      example_modal_num++;
       if (nodes[i].tagName === "EXAMPLE-MODAL") {
         let id = nodes[i].id || nodes[i].tagName.toLowerCase() + '-' + example_modal_num;
 
         let button = document.createElement('button');
-        button.classList.add('btn');
+        button.classList.add('btn', 'btn-xs');
         button.setAttribute('type', 'button');
         button.setAttribute('data-toggle', "modal");
         button.setAttribute('data-target', "#" + "example-modal-popup-" + id);
@@ -201,7 +200,7 @@ class HTMLTeX {
         this.container.replaceChild(block, nodes[i]);
 
         refs[id] = block_number;
-        block_number++;
+        example_modal_num++;
       }
     }
 

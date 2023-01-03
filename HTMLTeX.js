@@ -143,6 +143,7 @@ class HTMLTeX {
     //example modals
     let example_modal_num = 1;
     for (let i = 0; i < nodes.length; i++) {
+      example_modal_num++;
       if (nodes[i].tagName === "EXAMPLE-MODAL") {
         let id = nodes[i].id || nodes[i].tagName.toLowerCase() + '-' + example_modal_num;
 

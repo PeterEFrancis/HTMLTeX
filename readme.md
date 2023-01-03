@@ -52,8 +52,9 @@ The benefit of **HTMLTeX** is the easy use of new and modified HTML tags. The li
 - `<example-modal>` example modal environment (requires bootstrap jquery)
   - button activated modal displaying example text
   - **outside**: (true/false) set button to be outside the body text
-  ```<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  
+  ```
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstr`ap.min.js"></script>```
 - `<proof>` proof environment
   - **collapse**: (true/false) set mode of proof box to be collapsable or not

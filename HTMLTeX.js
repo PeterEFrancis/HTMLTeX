@@ -136,7 +136,7 @@ class HTMLTeX {
         this.container.replaceChild(block, nodes[i]);
 
         refs[id] = block_number;
-        block_number++;
+        unlabeled_block_number++;
       }
     }
 

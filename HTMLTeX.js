@@ -174,7 +174,7 @@ class HTMLTeX {
         if (nodes[i].title) {
           header_text.innerHTML += ' ' + nodes[i].title + '.';
         } else {
-          header_text += "."
+          header_text.innerHTML += "."
         }
         let body = document.createElement('div');
         body.classList.add('modal-body');

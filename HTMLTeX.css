@@ -371,3 +371,221 @@
 .HTMLTeX .references:first-child {
   counter-reset: customlistcounter;
 }
+
+
+
+.HTMLTeX .btn {
+  display:inline-block;
+  margin-bottom:0;
+  font-weight:400;
+  text-align:center;
+  white-space:nowrap;
+  vertical-align:middle;
+  -ms-touch-action:manipulation;
+  touch-action:manipulation;
+  cursor:pointer;
+  background-image:none;
+  border:1px solid transparent;
+  padding:6px 12px;
+  font-size:14px;
+  line-height:1.42857143;
+  border-radius:4px;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none
+}
+
+
+
+.HTMLTeX .modal-open {
+	overflow: hidden
+}
+
+.HTMLTeX .modal {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1050;
+	display: none;
+	overflow: hidden;
+	-webkit-overflow-scrolling: touch;
+	outline: 0
+}
+
+.HTMLTeX .modal.fade .modal-dialog {
+	-webkit-transform: translate(0,-25%);
+	-ms-transform: translate(0,-25%);
+	-o-transform: translate(0,-25%);
+	transform: translate(0,-25%);
+	-webkit-transition: -webkit-transform .3s ease-out;
+	-o-transition: -o-transform .3s ease-out;
+	transition: -webkit-transform .3s ease-out;
+	transition: transform .3s ease-out;
+	transition: transform .3s ease-out,-webkit-transform .3s ease-out,-o-transform .3s ease-out
+}
+
+.HTMLTeX .modal.in .modal-dialog {
+	-webkit-transform: translate(0,0);
+	-ms-transform: translate(0,0);
+	-o-transform: translate(0,0);
+	transform: translate(0,0)
+}
+
+.HTMLTeX .modal-open .modal {
+	overflow-x: hidden;
+	overflow-y: auto
+}
+
+.HTMLTeX .modal-dialog {
+	position: relative;
+	width: auto;
+	margin: 10px
+}
+
+.HTMLTeX .modal-content {
+	position: relative;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #999;
+	border: 1px solid rgba(0,0,0,.2);
+	border-radius: 6px;
+	-webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
+	box-shadow: 0 3px 9px rgba(0,0,0,.5);
+	outline: 0
+}
+
+.modal-backdrop {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1040;
+	background-color: #000
+}
+
+.modal-backdrop.fade {
+	filter: alpha(opacity=0);
+	opacity: 0
+}
+
+.modal-backdrop.in {
+	filter: alpha(opacity=50);
+	opacity: .5
+}
+
+.HTMLTeX .modal-header {
+	padding: 15px;
+	border-bottom: 1px solid #e5e5e5
+}
+
+.HTMLTeX .modal-header .close {
+	margin-top: -2px
+}
+
+.HTMLTeX .modal-title {
+	margin: 0;
+	line-height: 1.42857143
+}
+
+.HTMLTeX .modal-body {
+	position: relative;
+	padding: 15px
+}
+
+.HTMLTeX .modal-footer {
+	padding: 15px;
+	text-align: right;
+	border-top: 1px solid #e5e5e5
+}
+
+.HTMLTeX .modal-footer .btn+.btn {
+	margin-bottom: 0;
+	margin-left: 5px
+}
+
+.HTMLTeX .modal-footer .btn-group .btn+.btn {
+	margin-left: -1px
+}
+
+.HTMLTeX .modal-footer .btn-block+.btn-block {
+	margin-left: 0
+}
+
+.HTMLTeX .modal-scrollbar-measure {
+	position: absolute;
+	top: -9999px;
+	width: 50px;
+	height: 50px;
+	overflow: scroll
+}
+
+@media (min-width:768px) {
+	.HTMLTeX .modal-dialog {
+		width: 600px;
+		margin: 30px auto
+	}
+
+	.HTMLTeX .modal-content {
+		-webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+		box-shadow: 0 5px 15px rgba(0,0,0,.5)
+	}
+
+	.HTMLTeX .modal-sm {
+		width: 300px
+	}
+}
+
+@media (min-width:992px) {
+	.HTMLTeX .modal-lg {
+		width: 900px
+	}
+}
+
+.HTMLTeX .modal-footer:after,.modal-footer:before,.modal-header:after,.modal-header:before,.nav:after,.nav:before,.navbar-collapse:after,.navbar-collapse:before,.navbar-header:after,.navbar-header:before,.navbar:after,.navbar:before,.pager:after,.pager:before,.panel-body:after,.panel-body:before,.row:after,.row:before {
+	display: table;
+	content: " "
+}
+
+
+.HTMLTeX .close {
+	float: right;
+	font-size: 21px;
+	font-weight: 700;
+	line-height: 1;
+	color: #000;
+	text-shadow: 0 1px 0 #fff;
+	filter: alpha(opacity=20);
+	opacity: .2
+}
+
+.HTMLTeX .close:focus,.close:hover {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+	filter: alpha(opacity=50);
+	opacity: .5
+}
+
+.HTMLTeX button.close {
+	padding: 0;
+	cursor: pointer;
+	background: 0 0;
+	border: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none
+}
+
+
+.HTMLTeX .example-modal-container {
+  height: 0px;
+}
+
+.HTMLTeX .example-modal-btn {
+  margin-top: -25;
+  margin-right: -100px;
+}

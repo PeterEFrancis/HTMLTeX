@@ -42,12 +42,18 @@ The benefit of **HTMLTeX** is the easy use of new and modified HTML tags. The li
 
 - `<tableofcontents>` display the table of contents (sections)
 - `<section>` create section header
-  - **id**: unique ID for use of on-page refs links
-- `<definition>` definition environment
-  - **id**: unique ID for use of on-page refs links
-- `<lemma>`, `<theorem>`, `<proposition>`, `<corollary>`, `<example>`, `<remark>` numbered block environment
-  - **id**: unique ID for use of on-page refs links
-  - **title**: bolded title of theorem
+  - **id**: unique ID for use of on-page ref links
+- numbered block environments: `<definition>`, `<lemma>`, `<theorem>`, `<proposition>`, `<corollary>`
+  - **id**: unique ID for use of on-page ref links
+  - **title**: bolded title
+- un-numbered block environment: `<example>`, `<remark>`
+  - **id**: unique ID for use of on-page ref links
+  - **title**: bolded title
+- `<example-modal>` example modal environment (requires bootstrap jquery)
+  - button activated modal displaying example text
+  - **outside**: (true/false) set button to be outside the body text
+  ```<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstr`ap.min.js"></script>```
 - `<proof>` proof environment
   - **collapse**: (true/false) set mode of proof box to be collapsable or not
   - **open**: (true/false) set default mode for collapsable proof box to be open

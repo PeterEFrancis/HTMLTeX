@@ -3,12 +3,15 @@
 
 
 const labeled_blocks_tag_types = [
-  'DEFINITION',
   'THEOREM',
   'LEMMA',
   'PROPOSITION',
-  'REMARK',
   'COROLLARY',
+  'DEFINITION'
+];
+
+const unlabeled_blocks_tag_types = [
+  'REMARK',
   'EXAMPLE'
 ];
 
@@ -84,15 +87,117 @@ class HTMLTeX {
         a.appendChild(document.createTextNode(block_number));
         a.href = "#" + id;
         strong.appendChild(a);
-        strong.appendChild(document.createTextNode('.'));
+        // strong.appendChild(document.createTextNode('.'));
         if (nodes[i].title) {
           strong.innerHTML += ' ' + nodes[i].title + '.';
+        } else {
+          strong.innerHTML += "."
         }
         text.innerHTML = nodes[i].innerHTML;
         blockquote.appendChild(strong);
         blockquote.appendChild(text);
         blockquote.id = id;
         this.container.replaceChild(blockquote, nodes[i]);
+
+        refs[id] = block_number;
+        block_number++;
+      }
+    }
+
+    // unlabled blocks
+    let unlabeled_block_number = 1;
+    for (let i = 0; i < nodes.length; i++) {
+      if (unlabeled_blocks_tag_types.includes(nodes[i].tagName)) {
+        let id = nodes[i].id || nodes[i].tagName.toLowerCase() + '-' + unlabeled_block_number;
+        let block = document.createElement('div');
+        let strong = document.createElement('strong');
+        let a = document.createElement('a');
+
+        block.appendChild(strong);
+        strong.appendChild(a);
+        a.appendChild(
+          document.createTextNode(
+            nodes[i].tagName.charAt(0).toUpperCase() + nodes[i].tagName.slice(1).toLowerCase()
+          )
+        );
+        if (options.highlight_links) {
+          a.classList.add('highlight');
+        }
+        a.href = "#" + id;
+        // strong.appendChild(document.createTextNode('. '));
+        if (nodes[i].title) {
+          strong.innerHTML += ' ' + nodes[i].title + '. ';
+        } else {
+          strong.innerHTML += ".";
+        }
+        block.appendChild(document.createTextNode(nodes[i].innerHTML));
+
+        block.id = id;
+        this.container.replaceChild(block, nodes[i]);
+
+        refs[id] = block_number;
+        block_number++;
+      }
+    }
+
+    //example modals
+    let example_modal_num = 1;
+    for (let i = 0; i < nodes.length; i++) {
+      if (nodes[i].tagName === "EXAMPLE-MODAL") {
+        let id = nodes[i].id || nodes[i].tagName.toLowerCase() + '-' + example_modal_num;
+
+        let button = document.createElement('button');
+        button.classList.add('btn');
+        button.setAttribute('type', 'button');
+        button.setAttribute('data-toggle', "modal");
+        button.setAttribute('data-target', "#" + "example-modal-popup-" + id);
+        button.innerHTML = "Example";
+
+        let popup = document.createElement('div');
+        popup.classList.add('modal', 'fade', 'text-left');
+        popup.setAttribute('id', "example-modal-popup-" + id);
+        popup.setAttribute('role', "dialog");
+        let dialog = document.createElement('div');
+        dialog.classList.add('modal-dialog');
+        let content = document.createElement('div');
+        content.classList.add('modal-content');
+        let header = document.createElement('div');
+        header.classList.add('modal-header');
+        let close = document.createElement('button');
+        close.classList.add('close');
+        close.setAttribute('type', 'button');
+        close.setAttribute('data-dismiss', "modal");
+        close.innerHTML = "&times;";
+        let header_text = document.createElement('h4');
+        header_text.classList.add('modal-title');
+        header_text.innerHTML = "Example";
+        if (nodes[i].title) {
+          header_text.innerHTML += ' ' + nodes[i].title + '.';
+        } else {
+          header_text += "."
+        }
+        let body = document.createElement('div');
+        body.classList.add('modal-body');
+        let p = document.createElement('p');
+        p.innerHTML = nodes[i].innerHTML;
+
+        let block = document.createElement('div');
+        block.appendChild(button);
+        block.appendChild(popup);
+        popup.appendChild(dialog);
+        dialog.appendChild(content);
+        content.appendChild(header);
+        header.appendChild(close);
+        header.appendChild(header_text);
+        content.appendChild(body);
+        body.appendChild(p);
+
+        if (nodes[i].getAttribute('outside') === "true") {
+          block.classList.add('text-right', 'example-modal-container');
+          button.classList.add('btn', 'example-modal-btn');
+        }
+
+        this.container.replaceChild(block, nodes[i]);
 
         refs[id] = block_number;
         block_number++;
@@ -262,10 +367,6 @@ class HTMLTeX {
         h5.innerHTML += "  " + text;
         this.container.replaceChild(h5, nodes[i]);
         refs[id] = id_num;
-        section_tree[section_number].subsections[subsection_number] = {
-          text: text,
-          id: id
-        };
       }
     }
 

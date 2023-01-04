@@ -132,8 +132,8 @@ class HTMLTeX {
         }
         let text = document.createElement('span');
         text.innerHTML = nodes[i].innerHTML;
-        block.appendChild(span);
-        
+        block.appendChild(text);
+
         block.id = id;
         this.container.replaceChild(block, nodes[i]);
 

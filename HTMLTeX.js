@@ -130,8 +130,10 @@ class HTMLTeX {
         } else {
           strong.innerHTML += ".";
         }
-        block.appendChild(document.createTextNode(nodes[i].innerHTML));
-
+        let text = document.createElement('span');
+        text.innerHTML = nodes[i].innerHTML;
+        block.appendChild(span);
+        
         block.id = id;
         this.container.replaceChild(block, nodes[i]);
 

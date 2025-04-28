@@ -16,8 +16,8 @@ Include the following in the head of your HTML doc:
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
 
 <!-- HTMLTeX -->
-<script src="https://PeterEFrancis.com/HTMLTeX/HTMLTeX.js"></script>
-<link rel="stylesheet" href="https://PeterEFrancis.com/HTMLTeX/HTMLTeX.css">
+<script src="https://cdn.jsdelivr.net/gh/PeterEFrancis/HTMLTeX@main/HTMLTeX.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/PeterEFrancis/HTMLTeX@main/HTMLTeX.css">
 ```
 
 Create an element in the body of the HTML doc that you would like to make look like LaTeX. Then include this script at the bottom of the page. Make sure the first argument to the `HTMLTeX` constructor is your intended LaTeX element.
